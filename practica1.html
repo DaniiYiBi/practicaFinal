@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>OnClass - Química Online</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style/practica1.css">
+	<link rel="icon" href="images/icon.jpg" type="image/jpg" sizes="16x16">
+</head>
+
+<body>
+	<header id="main-header">
+		<nav>
+		<!-- BURGUER MENU -->
+			<div id="burger-menu">
+				<input type="checkbox" />
+				<span></span>
+				<span></span>
+				<span></span>
+				<ul id="menu">
+					<li id = "student_list1" style = "display:none;"><a onclick="contentChange('students-block');">Listado de estudiantes</a></li>
+					<li id = "signatures1" style = "display:none;"><a onclick="contentChange('signatures-block');">Mis asignaturas</a></li>
+					<li><a onclick="contentChange('forum-block');">Foro de la asignatura</a></li>
+					<li id = "califications1"><a onclick="contentChange('califications-block');">Calificaciones</a></li>
+					<li id = "mycalifications1"><a onclick="contentChange('news-block');">Noticias</a></li>
+					<li><a onclick="contentChange('events-block');">Eventos</a></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- HEADER DIVIDIDO EN TRES-->
+		<div id = "left-header"> 
+			<ul id="header-options">
+				<li>
+					<button id="mySessionBtn"><a>Cerrar Sesión</a></button>
+					<div id="mySessionModal" class="modal">
+						<div id="modal-session-content">
+							<span id="SessionClose" class="close">&times;</span>
+							<p id="msg-confirm">¿Está usted seguro de querer abandonar la sesión?</p>
+							<a id="leave-ses" href="login.html">Estoy Seguro</a>
+						</div>
+					</div>
+				</li>
+				<li><a href="https://www.youtube.com/channel/UCTiu0apxEtCGpuLYeI-owkg">Fuente</a></li>
+				<li><a href="https://www.w3schools.com/">W3Schools</a></li>
+			</ul>
+		</div>
+		<div id = "center-header">
+			<a href="practica1.html"><img id="logo" src="images/logtit.png" alt="logo"></a>		
+		</div>
+		<div id = "right-header">
+			<p id= nombre_usuario></p>
+			<a><img id="perfil" src="images/profile.png" alt="foto de perfil"></a>
+		</div>
+	</header>
+
+	<aside>
+		<!--MENU LATERAL IZQUIERDO-->
+		<ul>
+			<li id = "student_list2" style="display:none;"><a class="button" onclick="contentChange('students-block');">
+					<span class="line1"></span>
+					<span class="line2"></span>
+					Listado de estudiantes</a>
+			</li>
+			<li id = "signatures2" style = "display: none;"><a class="button" onclick="contentChange('signatures-block');">
+					<span class="line1"></span>
+					<span class="line2"></span>
+					Mis asignaturas</a>
+			</li>
+			<li><a class="button" onclick="contentChange('forum-block');">
+					<span class="line1"></span>
+					<span class="line2"></span>
+					Foro de la asignatura</a>
+			</li>
+			<li id = "califications2" style = "display: none;"><a class="button" onclick="contentChange('califications-block');">
+					<span class="line1"></span>
+					<span class="line2"></span>
+					Calificaciones</a>
+			</li>
+			<li id ="mycalifications2" style="display:none;"><a class="button" onclick="contentChange('mycalifications-block');">
+					<span class="line1"></span>
+					<span class="line2"></span>
+					Mis calificaciones</a>
+			</li>
+			<li><a class="mobile-button" onclick="contentChange('news-block');">
+					<span class="line1"></span>
+					<span class="line2"></span>
+					Noticias</a>
+			</li>
+			<li><a class="mobile-button" onclick="contentChange('events-block');">
+					<span class="line1"></span>
+					<span class="line2"></span>
+					Eventos</a>
+			</li>
+		</ul>
+	</aside>
+
+	<section id="topics">
+
+		<!-- PAGINA PRINCIPAL DEL FORO-->
+		<div id="main-block" class="blocks">
+			<div class="topic">
+				<div class="presentation">
+					<img src="images/ab.png" alt="image">
+					<h1>Tema 1 - Ácido base</h1>
+					<p>Una reacción ácido-base o reacción de neutralización es una reacción química que ocurre entre un
+						ácido y una base produciendo sal y agua.
+						La palabra "sal" describe cualquier compuesto iónico cuyo catión provenga de una base (Na+ del
+						NaOH) y cuyo anión provenga de un ácido (Cl- del HCl).
+						Las reacciones de neutralización son generalmente exotérmicas, lo que significa que desprenden
+						energía en forma de calor. Se les suele llamar de
+						neutralización porque al reaccionar un ácido con una base.
+					</p>
+				</div>
+				<div class="video-container-left">
+					<iframe src="https://www.youtube.com/embed/E_xcacKMzyQ" allowfullscreen></iframe>
+					<h2 class = "title_video">Características de los ácidos y las bases</h2>
+					<p>Los ácidos y las bases son sustancias que existen en la naturaleza y que se distinguen por su
+						nivel de pH,
+						es decir, por su grado de acidez o alcalinidad. Ambos, sin embargo, suelen ser sustancias
+						corrosivas.
+					</p>
+				</div>
+				<div class="video-container-right">
+					<iframe src="https://www.youtube.com/embed/Igb21Z5_KKI" allowfullscreen></iframe>
+					<h2 class = "title_video">Arrhenius, Brönsted-Lowry y Lewis</h2>
+					<p>Arrhenius clasifica una sustancia como un ácido si produce iones hidrógeno H(+),
+						Bronsted-Lowry si actúa como donador de protones y Lewis si actúa como un aceptor de par de
+						electrones.
+					</p>
+				</div>
+				<div class="video-container-left">
+					<iframe src="https://www.youtube.com/embed/rw1HKsRudnM" allowfullscreen></iframe>
+					<h2 class = "title_video">PH, POH y producto iónico del agua</h2>
+					<p>En condiciones estándar las concentraciones de hidróxido y oxonio son ambas tan bajas como 1,0 *
+						10−7 mol/L y los iones rara vez se producen:
+						una molécula de agua seleccionada al azar se disocia cada 10 horas.
+					</p>
+				</div>
+			</div>
+
+			<div class="topic">
+				<div class="presentation">
+					<img src="images/eq.png" alt="image">
+					<h1>Tema 2 - Equilibrio químico</h1>
+					<p>El equilibrio químico es el estado en el que las actividades químicas o las concentraciones de
+						los reactivos y los
+						productos no tienen ningún cambio neto. Normalmente, este sería el estado que se produce cuando
+						una reacción reversible evoluciona hacia adelante
+						en la misma proporción que su reacción inversa. La velocidad de reacción de las reacciones
+						directa e inversa por lo general no son cero, pero, si
+						ambas son iguales, no hay cambios netos en cualquiera de las concentraciones de los reactivos o
+						productos.
+					</p>
+				</div>
+				<div class="video-container-left">
+					<iframe src="https://www.youtube.com/embed/VQjIP087SSY" allowfullscreen></iframe>
+					<h2 class = "title_video">Equilibrio químico y constante de equilibrio</h2>
+					<p>La constante de equilibrio de una reacción química es el valor de su cociente de reacción en el
+						equilibrio químico, en el que su composición no
+						tiene una tendencia medible hacia un cambio adicional.
+					</p>
+				</div>
+				<div class="video-container-right">
+					<iframe src="https://www.youtube.com/embed/vmZ5x0V_ecQ" allowfullscreen></iframe>
+					<h2 class = "title_video">Cociente de reacción</h2>
+					<p>La expresión del Cociente de Reacción de una reacción tiene la misma ecuación que la expresión de
+						constante de equilibrio para dicha reacción.
+						El cociente de reacción se calcula utilizando las presiones en un instante.
+					</p>
+				</div>
+				<div class="video-container-left">
+					<iframe src="https://www.youtube.com/embed/Q7odmjqdgd8" allowfullscreen></iframe>
+					<h2 class = "title_video">Grado de disociación</h2>
+					<p>El grado de disociación, α, se define como el cociente entre la cantidad de sustancia disociada,
+						respecto de la cantidad de sustancia inicial
+						o total. Estas cantidades de sustancia se miden en moles.
+					</p>
+				</div>
+			</div>
+
+			<div class="topic">
+				<div class="presentation">
+					<img src="images/cq.png" alt="image">
+					<h1>Tema 3 - Cinética química</h1>
+					<p>La cinética química es un área de la fisicoquímica que se encarga del estudio de la rapidez de
+						reacción, cómo cambia la rapidez de reacción bajo
+						condiciones variables y qué eventos moleculares se efectúan mediante la reacción general. La
+						cinética química es un estudio puramente empírico y
+						experimental; el área química que permite indagar en las mecánicas de reacción se conoce como
+						dinámica química.
+					</p>
+				</div>
+				<div class="video-container-left">
+					<iframe src="https://www.youtube.com/embed/DE3_F5TVX8o" allowfullscreen></iframe>
+					<h2 class = "title_video">Velocidad de las reacciones</h2>
+					<p>La velocidad de reacción se define como la cantidad de sustancia que se transforma en una
+						determinada reacción por unidad de volumen y tiempo.
+					</p>
+				</div>
+				<div class="video-container-right">
+					<iframe src="https://www.youtube.com/embed/9k82lvY1iz4" allowfullscreen></iframe>
+					<h2 class = "title_video">Energía de activación</h2>
+					<p>Suele utilizarse para denominar la energía mínima necesaria para que se produzca una reacción
+						química dada.
+						Dos moléculas deben colisionar en la orientación correcta y poseer una cantidad de energía
+						mínima.
+					</p>
+				</div>
+				<div id="last-container">
+					<iframe src="https://www.youtube.com/embed/2TpWbgQnIic" allowfullscreen></iframe>
+					<h2 class = "title_video">Factores de la velocidad de la reacción</h2>
+					<p>Cuanto mayor es la concentración de los reactivos, mayor es el número de choques efectivos por
+						unidad de tiempo
+						y, por tanto, mayor es la velocidad de una reacción.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- PAGINA PRINCIPAL DE MIS ASIGNATURAS-->
+		<div id="signatures-block" class="blocks" style="display:none;">
+			<div id="sig_header">
+				<img id="sig_img" src="images/sig.png" alt="logo">
+				<p id="sig_title">Mis Asignaturas</p>
+			</div>
+
+			<div>
+				<table id="signatures_table">
+					<tr class= "standar_keys">
+						<td class="standar_column">
+							<p>Asignaturas</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Química</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Mates</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Lengua</p>
+						</td>
+
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Ingles</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Historia</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Dibujo Técnico</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<!-- PAGINA PRINCIPAL DE LISTA DE ESTUDIANTES-->
+		<div id="students-block" class="blocks" style="display:none;">
+			<div id="stu_header">
+				<img id="img_stu" src="images/stu.png" alt="logo">
+				<p id="stu_title">Listado de estudiantes</p>
+			</div>
+
+			<div>
+				<table id="students">
+					<tr>
+						<td><img class="stphoto" src="images/leonardo_dicaprio.jpg" alt='student image'></td>
+						<td>
+							<p class="stname">Aleix Barea Cespedes</p>
+						</td>
+						<td>
+							<p class="stmail">aleixbar@gmail.com</p>
+						</td>
+						<td><img class="message" src="images/message.png" alt='icon'></td>
+					</tr>
+					<tr>
+						<td><img class="stphoto" src="images/jennifer.jpg" alt='student image'></td>
+						<td>
+							<p class="stname">Andrea Perea Rodríguez</p>
+						</td>
+						<td>
+							<p class="stmail">andreaper@gmail.com</p>
+						</td>
+						<td><img class="message" src="images/message.png" alt='icon'></td>
+					</tr>
+					<tr>
+						<td><img class="stphoto" src="images/willyrex.jpg" alt='student image'></td>
+						<td>
+							<p class="stname">Faustino Gordillo Belgar</p>
+						</td>
+						<td>
+							<p class="stmail">fausgor@gmail.com</p>
+						</td>
+						<td><img class="message" src="images/message.png" alt='icon'></td>
+					</tr>
+					<tr>
+						<td><img class="stphoto" src="images/alexby.jpg" alt='student image'></td>
+						<td>
+							<p class="stname">Carles del Pino Murcia</p>
+						</td>
+						<td>
+							<p class="stmail">cardpmur@gmail.com</p>
+						</td>
+						<td><img class="message" src="images/message.png" alt='icon'></td>
+					</tr>
+					<tr>
+						<td><img class="stphoto" src="images/will_smith.jpg" alt='student image'></td>
+						<td>
+							<p class="stname">Ricardo Lema Raya</p>
+						</td>
+						<td>
+							<p class="stmail">ricarle@gmail.com</p>
+						</td>
+						<td><img class="message" src="images/message.png" alt='icon'></td>
+					</tr>
+					<tr>
+						<td><img class="stphoto" src="images/dalas.jpg" alt='student image'></td>
+						<td>
+							<p class="stname">Miguel García Trigueros</p>
+						</td>
+						<td>
+							<p class="stmail">miguelgar@gmail.com</p>
+						</td>
+						<td><img class="message" src="images/message.png" alt='icon'></td>
+					</tr>
+					<tr>
+						<td><img class="stphoto" src="images/flipin.jpeg" alt='student image'></td>
+						<td>
+							<p class="stname">Rodrigo Rabago Girón</p>
+						</td>
+						<td>
+							<p class="stmail">rodrab@gmail.com</p>
+						</td>
+						<td><img class="message" src="images/message.png" alt='icon'></td>
+					</tr>
+					<tr>
+						<td><img class="stphoto" src="images/vegetta777.jpg" alt='student image'></td>
+						<td>
+							<p class="stname">Samuel Luque Sánchez</p>
+						</td>
+						<td>
+							<p class="stmail">samluq@gmail.com</p>
+						</td>
+						<td><img class="message" src="images/message.png" alt='icon'></td>
+					</tr>
+					<tr>
+						<td><img class="stphoto" src="images/staxx.jpg" alt='student image'></td>
+						<td>
+							<p class="stname">Fran Torrado Villalba</p>
+						</td>
+						<td>
+							<p class="stmail">frantor@gmail.com</p>
+						</td>
+						<td><img class="message" src="images/message.png" alt='icon'></td>
+					</tr>
+					<tr>
+						<td><img class="stphoto" src="images/rubius.jpg" alt='student image'></td>
+						<td>
+							<p class="stname">Rubén Jiménez Pacheco</p>
+						</td>
+						<td>
+							<p class="stmail">rujimen@gmail.com</p>
+						</td>
+						<td><img class="message" src="images/message.png" alt='icon'></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<!-- PAGINA PRINCIPAL DE LAS CALIFICACIONES GENERALES-->
+		<div id="califications-block" class="blocks" style="display:none;">
+			<div class="cal_header">
+				<img class="img_cal" src="images/cal.png" alt="logo">
+				<p class="cal_title">Calificaciones</p>
+			</div>
+
+			<div class ="cal_body">
+				<table id="cal_table">
+					<tr class="standar_keys">
+						<td class="standar_column">
+							<p>Estudiantes</p>
+						</td>
+						<td class="standar_column">
+							<p>Actividad 1</p>
+						</td>
+						<td class="standar_column">
+							<p>Actividad 2</p>
+						</td>
+						<td class="standar_column">
+							<p>Actividad 3</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Aleix Barea Cespedes</p>
+						</td>
+						<td class="standar_column">
+							<p>5</p>
+						</td>
+						<td class="standar_column">
+							<p>7,5</p>
+						</td>
+						<td class="standar_column">
+							<p>6,25</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Andrea Perea Rodríguez</p>
+						</td>
+						<td class="standar_column">
+							<p>4,3</p>
+						</td>
+						<td class="standar_column">
+							<p>10</p>
+						</td>
+						<td class="standar_column">
+							<p>9,5</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Faustino Gordillo Belgar</p>
+						</td>
+						<td class="standar_column">
+							<p>5,7</p>
+						</td>
+						<td class="standar_column">
+							<p>6</p>
+						</td>
+						<td class="standar_column">
+							<p>8</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Carles del Pino Murcia</p>
+						</td>
+						<td class="standar_column">
+							<p>7</p>
+						</td>
+						<td class="standar_column">
+							<p>4,8</p>
+						</td>
+						<td class="standar_column">
+							<p>9</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Ricardo Lema Raya</p>
+						</td>
+						<td class="standar_column">
+							<p>4,5</p>
+						</td>
+						<td class="standar_column">
+							<p>9</p>
+						</td>
+						<td class="standar_column">
+							<p>10</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Miguel García Trigueros</p>
+						</td>
+						<td class="standar_column">
+							<p>9</p>
+						</td>
+						<td class="standar_column">
+							<p>6,3</p>
+						</td>
+						<td class="standar_column">
+							<p>8,5</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Rodrigo Rabago Girón</p>
+						</td>
+						<td class="standar_column">
+							<p>4,5</p>
+						</td>
+						<td class="standar_column">
+							<p>8</p>
+						</td>
+						<td class="standar_column">
+							<p>10</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Samuel Luque Sánchez</p>
+						</td>
+						<td class="standar_column">
+							<p>3</p>
+						</td>
+						<td class="standar_column">
+							<p>2</p>
+						</td>
+						<td class="standar_column">
+							<p>4,3</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Fran Torrado Villalba</p>
+						</td>
+						<td class="standar_column">
+							<p>8,4</p>
+						</td>
+						<td class="standar_column">
+							<p>10</p>
+						</td>
+						<td class="standar_column">
+							<p>9,6</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Rubén Jiménez Pacheco</p>
+						</td>
+						<td class="standar_column">
+							<p>3</p>
+						</td>
+						<td class="standar_column">
+							<p>8,7</p>
+						</td>
+						<td class="standar_column">
+							<p>5,3</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class= cal_footer>
+				<button id="descargar"> Descargar Excel</button>
+			</div>
+		</div>
+
+		<!-- PAGINA PRINCIPAL DE LAS CALIFICACIONES INDIVIDUALES-->
+		<div id="mycalifications-block" class="blocks" style="display:none;">
+			<div class="cal_header">
+				<img class="img_cal" src="images/cal.png" alt="logo">
+				<p class="cal_title">Mis Calificaciones</p>
+			</div>
+
+			<div class="cal_body">
+				<table id="mycal_table">
+					<tr class="standar_keys">
+						<td class="standar_column">
+							<p>Asignatura</p>
+						</td>
+						<td class="standar_column">
+							<p>Actividad 1</p>
+						</td>
+						<td class="standar_column">
+							<p>Actividad 2</p>
+						</td>
+						<td class="standar_column">
+							<p>Actividad 3</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Química</p>
+						</td>
+						<td class="standar_column">
+							<p>7</p>
+						</td>
+						<td class="standar_column">
+							<p>8</p>
+						</td>
+						<td class="standar_column">
+							<p>9</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Mates</p>
+						</td>
+						<td class="standar_column">
+							<p>1</p>
+						</td>
+						<td class="standar_column">
+							<p>2</p>
+						</td>
+						<td class="standar_column">
+							<p>3</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Lengua</p>
+						</td>
+						<td class="standar_column">
+							<p>4</p>
+						</td>
+						<td class="standar_column">
+							<p>5</p>
+						</td>
+						<td class="standar_column">
+							<p>6</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Ingles</p>
+						</td>
+						<td class="standar_column">
+							<p>7</p>
+						</td>
+						<td class="standar_column">
+							<p>8</p>
+						</td>
+						<td class="standar_column">
+							<p>9</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="standar_column">
+							<p>Historia</p>
+						</td>
+						<td class="standar_column">
+							<p>7</p>
+						</td>
+						<td class="standar_column">
+							<p>8</p>
+						</td>
+						<td class="standar_column">
+							<p>9</p>
+						</td>
+					</tr>
+						<td class="standar_column">
+							<p>Dibujo Tecnico</p>
+						</td>
+						<td class="standar_column">
+							<p>7</p>
+						</td>
+						<td class="standar_column">
+							<p>8</p>
+						</td>
+						<td class="standar_column">
+							<p>9</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class= cal_footer>
+				<button id="descargar2"> Descargar Excel</button>
+			</div>
+		</div>
+
+		<!-- PAGINA PRINCIPAL DEL FORO-->
+		<div id="forum-block" class="blocks" style="display:none;">
+			<div id="forum_header">
+				<img id="img_forum" src="images/foro.png" alt="logo">
+				<p id="forum_title">Foro de Química</p>
+			</div>
+
+			<div>
+				<table id = "forum_themes">
+					<tr>
+						<th> Tema de la asignatura</th>
+						<th> Mensajes Enviados</th>
+						<th> Último Mensaje</th>
+					</tr>
+
+					<tr>
+						<td><a onclick = "forumMaker('forum_tema1');">Tema 1: Ácido Base</a></td>
+						<td> 3</td>
+						<td> 28/09/2020</td>
+					</tr>
+
+					<tr>
+						<td onclick = "forumMaker('forum_tema2');"> Tema 2: Equilibrio Químico</td>
+						<td> 2</td>
+						<td> 01/08/2020</td>
+					</tr>
+
+					<tr>
+						<td onclick = "forumMaker('forum_tema3');"> Tema 3: Cinética Química</td>
+						<td> 1</td>
+						<td> 12/06/2020</td>
+					</tr>
+
+					<tr>
+						<td onclick = "forumMaker('forum_tema4');"> Tema 4: Estequiometría</td>
+						<td> 2</td>
+						<td> 04/10/2020</td>
+					</tr>
+				</table>
+				
+				<table class = "forum_tables" id = "forum_tema1" style = "display:none;">
+					<tr>
+						<td><img class="stphoto" src="images/alexby.jpg"></td>
+						<td>Rubén Jiménez Pacheco</td>
+						<td>26/09/2020 17:53</td>
+						<td>Si el ácido base es atómico, ¿Constituye una red de isótopos?</td>
+					</tr>
+					<tr>
+						<td><img class="stphoto" src="images/dalas.jpg"></td>
+						<td>Fran Torrado Villalba</td>
+						<td>27/09/2020 16:23</td>
+						<td>¿Cuál es el principio fundamental para determinar que un ácido es básico?</td>
+					</tr>
+					<tr>
+						<td><img class="stphoto" src="images/will_smith.jpg"></td>
+						<td>Aleix Barea Cespedes</td>
+						<td>28/09/2020 16:23</td>
+						<td>¿Qué volumen de dióxido de carbono, en c.n., pueden generarse?</td>
+					</tr>
+				</table>
+				
+				<table class = "forum_tables" id = "forum_tema2" style = "display:none;">
+					<tr>
+						<td><img class="stphoto" src="images/leonardo_dicaprio.jpg"></td>
+						<td>Alex Martín Torrado</td>
+						<td>30/07/2020 17:53</td>
+						<td>¿Qué volumen de hidrógeno medido a 25ºC y 722 mmHg se obtiene?</td>
+					</tr>
+					<tr>
+						<td><img class="stphoto" src="images/rubius.jpg"></td>
+						<td>Francisco López Jiménez</td>
+						<td>01/08/2020 16:23</td>
+						<td>Hola saludos,  alguien me podría ayudar con el ejercicio número 23? </td>
+					</tr>
+				</table>
+				
+				<table class = "forum_tables" id = "forum_tema3" style = "display:none;">
+					<tr>
+						<td><img class="stphoto" src="images/willyrex.jpg"></td>
+						<td>Alejandro Pérez Rubio</td>
+						<td>12/06/2020 17:53</td>
+						<td>Alguien me puede resolver como se saca la entropía??</td>
+					</tr>
+				</table>
+				
+				<table class = "forum_tables" id = "forum_tema4" style = "display:none;">
+					<tr>
+						<td><img class="stphoto" src="images/vegetta777.jpg"></td>
+						<td>Samuel De Luque López</td>
+						<td>30/07/2020 17:53</td>
+						<td>Al quemar un litro de un hidrocarburo gaseoso con exceso de O2, se obtienen dos litros de CO2?</td>
+					</tr>
+					<tr>
+						<td><img class="stphoto" src="images/staxx.jpg"></td>
+						<td>Mariano Sánchez Rajoy</td>
+						<td>04/10/2020 16:23</td>
+						<td>En ese producto, el hierro actúa con +3, y el 2 viene del ión SO4(-2), por lo tanto está bien como está</td>
+					</tr>
+				</table>
+				<textarea id = "newquestion" style = "display: none;"></textarea>
+				<button id = "addquestion" style = "display: none;" onclick = "addNewQuestion();">Enviar</button>
+			</div>
+		</div>
+
+		<!-- PAGINA PRINCIPAL EVENTOS-->
+		<div id="events-block" class="blocks" style="display:none;">
+			<div id="events_header">
+				<img id="img_events" src="images/calendar.png" alt="logo">
+			</div>
+			<div class="calendar"></div>
+		</div>
+
+		<!-- PAGINA PRINCIPAL NOTICIAS-->
+		<div id="news-block" class="blocks" style="display:none;">
+			<div id="news_header">
+				<img id="img_news" src="images/news.png" alt="logo">
+			</div>
+
+			<div id="news_topic">
+				<table class="news_topic_table">
+					<tr>
+						<td class="new_topic">
+							<p class="new_title">Nuevo mensaje en el foro</p>
+							<p class="new_topic_internal_text"> Fran Torrado Villalba ha publicado un nuevo comentario
+								acerca del Tema 4:Estequiometria
+								ayer 03/10/2020 a las 21:04.
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="new_topic">
+							<p class="new_title">Publicado nuevo video</p>
+							<p class="new_topic_internal_text"> Ya teneis subido un nuevo video sobre el Tema 3:Cinética
+								Química. En este video aprendereis
+								acerca de los Factores de la velocidad de la reacción.
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<!-- MENU LATERAL DERECHO-->
+	<div id="announcements">
+		<div id="news">
+			<div id = "news_title" class = "background_title">
+			<p class="title"> Noticias</p>
+		</div>
+			<table class="news_table">
+				<tr>
+					<td class="new">
+						<p class="new_title">Nuevo mensaje en el foro</p>
+						<p class="new_internal_text"> Fran Torrado Villalba ha publicado un nuevo comentario acerca del
+							Tema 4:Estequiometria
+							ayer 03/10/2020 a las 21:04.
+						</p>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="new">
+						<p class="new_title">Publicado nuevo video</p>
+						<p class="new_internal_text"> Ya teneis subido un nuevo video sobre el Tema 3:Cinética Química.
+							En este video aprendereis
+							acerca de los Factores de la velocidad de la reacción.
+						</p>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+
+		<div id="events" class = "background_title">
+			<button id="myEventsBtn">
+				<p class="title"> Eventos</p>
+			</button>
+			<div id="myEventsModal" class="modal">
+				<div id="modal-events-content">
+					<div class="calendar">
+						<span id="EventsClose" class="close">&#60;</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- MENU LATERAL INFERIOR-->
+	<div id="info">
+		<ul>
+			<li><a href="https://www.uc3m.es/Inicio">Contacto</a></li>
+			<li>
+				<p>|</p>
+			</li>
+			<li><a href="#">&copy;OnClass</a></li>
+			<li>
+				<p>|</p>
+			</li>
+			<li><a href="#">Política de privacidad</a></li>
+		</ul>
+	</div>
+</body>
+
+<script src="./script/script.js"></script>
+<script src="./jquery/jquery-3.5.1.min.js"></script>
+<script src="./jquery/animated-event-calendar/src/jquery.simple-calendar.js"></script>
+<script src="./jquery/Export-Html-Table-To-Excel-Spreadsheet-using-jQuery-table2excel/src/jquery.table2excel.js"></script>
+
+<script>
+	$(function () {
+		$(".calendar").simpleCalendar({
+			displayEvent: true,
+			events: [
+				{
+					startDate: new Date(new Date().setHours(new Date().getHours() + 24)).toDateString(),
+					endDate: new Date(new Date().setHours(new Date().getHours() + 25)).toISOString(),
+					summary: 'Visit of the Eiffel Tower'
+				},
+				{
+					startDate: new Date(new Date().setHours(new Date().getHours() - new Date().getHours() - 12, 0)).toISOString(),
+					endDate: new Date(new Date().setHours(new Date().getHours() - new Date().getHours() - 11)).getTime(),
+					summary: 'Restaurant'
+				},
+				{
+					startDate: new Date(new Date().setHours(new Date().getHours() - 48)).toISOString(),
+					endDate: new Date(new Date().setHours(new Date().getHours() - 24)).getTime(),
+					summary: 'Visit of the Louvre'
+				}
+			],
+			disableEventDetails: false,
+			disableEmptyDetails: false,
+			months: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
+			days: ['domingo', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'],
+			displayYear: true,
+			fixedStartDay: true,
+			onInit: function (calendar) { },
+			onMonthChange: function (month, year) { },
+			onDateSelect: function (date, events) { }
+		});
+	});
+</script>
+
+<script>
+	$("#descargar").click(function () {
+		$("#cal_table").table2excel({
+			exclude: ".noExl",
+			name: "Worksheet Name",
+			filename: "SomeFile",
+			fileext: ".xls", 
+			preserveColors:true
+		});
+	});
+</script>
+
+<script>
+	$("#descargar2").click(function () {
+		$("#mycal_table").table2excel({
+			exclude: ".noExl",
+			name: "Worksheet Name",
+			filename: "SomeFile",
+			fileext: ".xls", 
+			preserveColors:true
+		});
+	});
+</script>
+
+</html>
