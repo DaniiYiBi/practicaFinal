@@ -1,102 +1,106 @@
 <!DOCTYPE html>
-<html lang = "es">
-	<head>
-		<title>OnClass</title>
-		<meta charset = "UTF-8">
-		<link rel = "stylesheet" type = "text/css" href = "style/login.css">
-		<script src = "./jquery/jquery-3.5.1.min.js"></script>
-		<link rel = "icon" href = "images/icon.jpg" type = "image/jpg" sizes = "16x16">
-	</head>
-	<body>
-		<div id = "main-container">
-			<div id = "form-box">
-				<div id = "button-box">
-					<div id = "btn"></div>
-					<button type = "button" class = "toggle-btn" onclick = "login()">Log In</button>
-					<button type = "button" class = "toggle-btn" onclick = "register()">Register</button>
+<html lang="es">
 
-				</div>
-				<!--login-->
-				<form  action= "practica1.html" onsubmit="loginAction();" id = "login" class = "input-box">
-					<input id = "log-email" type = "email" class = "input-field" placeholder = "Email" required>
-					<input id = "log-password" type = "password" class = "input-field" placeholder = "Contraseña" pattern = "[a-zA-Z0-9]{1,8}" required>
-					<button type = "submit" class = "submit-btn">Log In</button>
-				</form>
-				<!--register-->
-				<form action="practica1.html" onsubmit="registerAction();" id = "register" class = "input-box">
-					<input id = "username" type = "text" class = "input-field" placeholder = "Nombre de Usuario" pattern = "[a-zA-Z0-9]{1,}" 
-					title = "Formato username incorrecto" required>
-					<input id = "nia" type = "text" class = "input-field" placeholder = "NIA" pattern = "(100)[0-9]{6}" 
-					title = "NIA inexistente" required>
-					<input id = "pass" type = "password" class = "input-field" placeholder = "Contraseña" pattern = "[a-zA-Z0-9]{1,8}" 
-					title = "Formato débil" required>
-					
-					<input id = "namesurname" type = "text" class = "input-field" placeholder = "Nombre y Apellidos" pattern = "[a-z A-Z]{1,}" 
-					title = "Nombre incorrecto" required>
-					<input id = "email" type = "email" class = "input-field" placeholder = "Email" required>
-					<input id = "born" type= "text" onfocus="(this.type='date')" class = "input-field" placeholder = "Fecha de Nacimiento" required>
-					<input id = "DNI" type = "text" class = "input-field" placeholder = "Documento de Identificación" pattern = "[0-9]{8}[A-Z]{1}" 
-					title = "Debe seguir el formato 12345678A" required>
-					<select id = "roles" class = "input-field" required>
+<head>
+    <title>OnClass</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style/login.css">
+    <script src="./jquery/jquery-3.5.1.min.js"></script>
+    <link rel="icon" href="images/icon.jpg" type="image/jpg" sizes="16x16">
+</head>
+
+<body>
+    <div id="main-container">
+        <img id="logo_login" src="images/logo_login.png">
+        <div id="form-box">
+            <div id="button-box">
+                <div id="btn"></div>
+                <button id="login-toggle" type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button id="register-toggle" type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+            <!--login-->
+            <form action="practica1.html" onsubmit="loginAction();" id="login" class="input-box">
+                <h1 class="title_userpass">USUARIO</h1>
+                <input id="log-email" type="email" class="input-field" required>
+                <h1 class="title_userpass">CONTRASEÑA</h1>
+                <input id="log-password" type="password" class="input-field" pattern="[a-zA-Z0-9]{1,8}" required>
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+            <!--register-->
+            <form action="practica1.html" onsubmit="registerAction();" id="register" class="input-box">
+                <input id="username" type="text" class="input-field" placeholder="Nombre de Usuario" pattern="[a-zA-Z0-9]{1,}" title="Formato username incorrecto" required>
+                <input id="nia" type="text" class="input-field" placeholder="NIA" pattern="(100)[0-9]{6}" title="NIA inexistente" required>
+                <input id="pass" type="password" class="input-field" placeholder="Contraseña" pattern="[a-zA-Z0-9]{1,8}" title="Formato débil" required>
+
+                <input id="namesurname" type="text" class="input-field" placeholder="Nombre y Apellidos" pattern="[a-z A-Z]{1,}" title="Nombre incorrecto" required>
+                <input id="email" type="email" class="input-field" placeholder="Email" required>
+                <input id="born" type="text" onfocus="(this.type='date')" class="input-field" placeholder="Fecha de Nacimiento" required>
+                <input id="DNI" type="text" class="input-field" placeholder="Documento de Identificación" pattern="[0-9]{8}[A-Z]{1}" title="Debe seguir el formato 12345678A" required>
+                <select id="roles" class="input-field" required>
 						<option value = "" disabled selected>Rol</option>
 						<option value = "Administrador">Administrador</option>
 						<option value = "Profesor">Profesor</option>
 						<option value = "Estudiante">Estudiante</option>
 					</select>
-					<select id = "grades" class = "input-field" style = "display: none;">
+                <select id="grades" class="input-field" style="display: none;">
 						<option value = "" disabled selected>Grado</option>
 						<option value = "Ingeniería Informática">Ingeniería Informática</option>
 						<option value = "Derecho">Derecho</option>
 						<option value = "Ingeniería Industrial">Ingeniería Industrial</option>
 					</select>
-					<input id = "uni" type = "text" class = "input-field" placeholder = "Universidad" onfocus = "this.value = 'Universidad Carlos III';" readonly>
-					<select id = "lang" class = "input-field">
+                <input id="uni" type="text" class="input-field" placeholder="Universidad" onfocus="this.value = 'Universidad Carlos III';" readonly>
+                <select id="lang" class="input-field">
 						<option value = "" disabled selected>Idiomas</option>
 						<option value = "Español">Español</option>
 						<option value = "Inglés">Inglés</option>
 						<option value = "Italiano">Italiano</option>
 					</select>
-					
-					<input id = "terms" type = "checkbox" class = "check-box" required><span>He leído y acepto las Condiciones de uso</span>
-					
-					<button type = "submit" class = "submit-btn">Guardar</button>
-					<button type = "reset" class = "submit-btn">Borrar</button>
-				</form>
-			</div>
-		</div>
-		<script type="text/javascript">
-		var w = document.getElementById("form-box");
-		var x = document.getElementById("login");
-		var y = document.getElementById("register");
-		var z = document.getElementById("btn");
-		
-		function register(){
-			w.style.height = "650px";
-			x.style.left = "-400px";
-			y.style.left = "50px";
-			z.style.left = "110px";
-		}
-		
-		function login(){
-			w.style.height = "260px";
-			x.style.left = "50px";
-			y.style.left = "450px";
-			z.style.left = "0px";
-		}
-		var roles = document.getElementById("roles");
-		roles.onchange = function(){
-			var grades = document.getElementById("grades");
-			var selected = roles.options[roles.selectedIndex].text;
-			var estudiante = "Estudiante";
-			if(selected==estudiante){
-				grades.style.display = "block";
-			}
-			if(selected!=estudiante){
-				grades.style.display = "none";
-			}
-		}
-	
-	</script>
-	</body>
-	<script src = "./script/script.js"></script>
+
+                <input id="terms" type="checkbox" class="check-box" required><span>He leído y acepto las Condiciones de uso</span>
+
+                <button type="submit" class="submit-btn">Guardar</button>
+                <button type="reset" class="submit-btn">Borrar</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var w = document.getElementById("form-box");
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("btn");
+
+        function register() {
+            w.style.height = "730px";
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+            document.getElementById("login-toggle").style.color = "white";
+            document.getElementById("register-toggle").style.color = "black";
+        }
+
+        function login() {
+            w.style.height = "350px";
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0px";
+            document.getElementById("login-toggle").style.color = "black";
+            document.getElementById("register-toggle").style.color = "white";
+        }
+
+        var roles = document.getElementById("roles");
+        roles.onchange = function() {
+            var grades = document.getElementById("grades");
+            var selected = roles.options[roles.selectedIndex].text;
+            var estudiante = "Estudiante";
+            if (selected == estudiante) {
+                grades.style.display = "block";
+            }
+            if (selected != estudiante) {
+                grades.style.display = "none";
+            }
+        }
+    </script>
+</body>
+<script src="./script/script.js"></script>
+
 </html>
